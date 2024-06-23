@@ -1,0 +1,14 @@
+.box-delete {
+    margin-top: 0.5vh;
+    margin-bottom: 2vh;
+}
+
+.buttons-delete {
+    margin-top: 1.5vh;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.delete-table {
+    margin-top: 1vh;
+}

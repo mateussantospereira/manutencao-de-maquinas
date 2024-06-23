@@ -1,0 +1,29 @@
+<div>
+    <label>Turma:</label>
+    <div id="inputs-turma">
+        <input type="text" id="turma" value="<%= value %>">
+        <select id="turmas" name="none">
+            <option value=""></option>
+
+            <% Object.values(turmas).forEach((turma) => { %>
+
+            <option value="<%= turma.turma %>"><%= turma.turma %></option>
+
+            <% }); %>
+            
+        </select>
+    </div>
+</div>
+
+<script>
+    const turmas = document.getElementById("turmas");
+    const option = turmas.getElementsByTagName("option")
+    const turma = document.getElementById("turma");
+
+    turmas.addEventListener("change", (event) => {
+        event.preventDefault();
+
+        let value = turmas.options[turmas.selectedIndex].value
+        turma.value = value;
+    });
+</script>

@@ -1,0 +1,15 @@
+#importPage, #exportPage  {
+    width: 35vw !important;
+}
+
+.main-button {
+    margin-top: 1vh;
+}
+
+#importPage input[type="file"] {
+    margin: 1vh 0;
+}
+
+.box-search {
+    width: 35vw !important;
+}

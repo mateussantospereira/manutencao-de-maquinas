@@ -1,0 +1,15 @@
+<h2 class="title">Deletar todas as Máquinas</h2>
+
+<%- include('../components/message', { value: "" }) %>
+
+<div>
+    <p>
+        Ao confirmar a deleção de todas as máquinas eles não poderão ser mais recuperados.
+    </p>
+</div>
+
+<div class="start">
+    <%- include('../components/boxDelete', { label: "Confirme a deleção de todas as máquinas:" ,
+    button: "Deletar todas as máquinas" , route: `/patrimonio/truncar`, redirect: "/listar" })
+    %>
+</div>

@@ -1,0 +1,27 @@
+insert into db_manutencao_de_maquinas.registros (nome, email, senha, turma, tipo) values 
+("Mateus dos Santos Pereira", "mateus@gmail.com", "$2a$08$FoihNm9J11pFPOJiWZ/WLOJN7KNqjbZG0GCF8Ow37Ccmr7DkFxQFi", "Adm.", "Adm."),
+("João Sebastião", "sebastiao@gmail.com", "$2a$08$FoihNm9J11pFPOJiWZ/WLOJN7KNqjbZG0GCF8Ow37Ccmr7DkFxQFi", "Profs.", "Prof."),
+("José Geraldo", "geraldo@gmail.com", "$2a$08$FoihNm9J11pFPOJiWZ/WLOJN7KNqjbZG0GCF8Ow37Ccmr7DkFxQFi", "Profs.", "Prof."),
+("Pedro de Alcântara", "pedro@gmail.com", "$2a$08$FoihNm9J11pFPOJiWZ/WLOJN7KNqjbZG0GCF8Ow37Ccmr7DkFxQFi", "MECÂICA-1", "Aluno"),
+("João Carlos Leopoldo", "joao@gmail.com", "$2a$08$FoihNm9J11pFPOJiWZ/WLOJN7KNqjbZG0GCF8Ow37Ccmr7DkFxQFi", "MECÂICA-1", "Aluno"),
+("Francisco Xavier de Paula", "francisco@gmail.com", "$2a$08$FoihNm9J11pFPOJiWZ/WLOJN7KNqjbZG0GCF8Ow37Ccmr7DkFxQFi", "MECÂICA-1", "Aluno"),
+("Leocádio Miguel", "leocadio@gmail.com", "$2a$08$FoihNm9J11pFPOJiWZ/WLOJN7KNqjbZG0GCF8Ow37Ccmr7DkFxQFi", "MECÂICA-1", "Aluno"),
+("Gabriel Rafael Gonzaga", "rafael@gmail.com", "$2a$08$FoihNm9J11pFPOJiWZ/WLOJN7KNqjbZG0GCF8Ow37Ccmr7DkFxQFi", "MECÂICA-1", "Aluno");
+
+insert into db_manutencao_de_maquinas.patrimonios (
+    ni, instituicao, tag, descricao, incorporacao, marca, serie, valor, sala, localizacao, ativo, obs, qrcode
+) values 
+(2094357, "SENAI", "YFHBIPF38", "TORNO MECÂNICO - ROMI 240", "2012-05-22", "ROMI", "GL 240", "R$ 300.000,00", "Oficína", "Bloco E", "Ativo", "Null", "Null"),
+(2094358, "SENAI", "YFHBIPF39", "TORNO MECÂNICO - ROMI 240", "2012-05-22", "ROMI", "GL 240", "R$ 300.000,00", "Oficína", "Bloco E", "Ativo", "Null", "Null"),
+(2094359, "SENAI", "YFHBIPF40", "TORNO MECÂNICO - ROMI 240", "2012-05-22", "ROMI", "GL 240", "R$ 300.000,00", "Oficína", "Bloco E", "Ativo", "Null", "Null"),
+(2094360, "SENAI", "YFHBIPF41", "TORNO MECÂNICO - ROMI 240", "2012-05-22", "ROMI", "GL 240", "R$ 300.000,00", "Oficína", "Bloco E", "Ativo", "Null", "Null"),
+(2094361, "SENAI", "YFHBIPF42", "TORNO MECÂNICO - ROMI 240", "2012-05-22", "ROMI", "GL 240", "R$ 300.000,00", "Oficína", "Bloco E", "Ativo", "Null", "Null"),
+(2094362, "SENAI", "YFHBIPF43", "TORNO MECÂNICO - ROMI 240", "2012-05-22", "ROMI", "GL 240", "R$ 300.000,00", "Oficína", "Bloco E", "Ativo", "Null", "Null"),
+(2094363, "SENAI", "YFHBIPF44", "TORNO MECÂNICO - ROMI 240", "2012-05-22", "ROMI", "GL 240", "R$ 300.000,00", "Oficína", "Bloco E", "Ativo", "Null", "Null"),
+(2094364, "SENAI", "YFHBIPF45", "TORNO MECÂNICO - ROMI 240", "2012-05-22", "ROMI", "GL 240", "R$ 300.000,00", "Oficína", "Bloco E", "Ativo", "Null", "Null"),
+(2094365, "SENAI", "YFHBIPF46", "TORNO MECÂNICO - ROMI 240", "2012-05-22", "ROMI", "GL 240", "R$ 300.000,00", "Oficína", "Bloco E", "Ativo", "Null", "Null"),
+(2094366, "SENAI", "YFHBIPF47", "TORNO MECÂNICO - ROMI 240", "2012-05-22", "ROMI", "GL 240", "R$ 300.000,00", "Oficína", "Bloco E", "Ativo", "Null", "Null"),
+(2094367, "SENAI", "YFHBIPF48", "TORNO MECÂNICO - ROMI 240", "2012-05-22", "ROMI", "GL 240", "R$ 300.000,00", "Oficína", "Bloco E", "Ativo", "Null", "Null"),
+(2094368, "SENAI", "YFHBIPF49", "TORNO MECÂNICO - ROMI 240", "2012-05-22", "ROMI", "GL 240", "R$ 300.000,00", "Oficína", "Bloco E", "Ativo", "Null", "Null"),
+(2094369, "SENAI", "YFHBIPF50", "TORNO MECÂNICO - ROMI 240", "2012-05-22", "ROMI", "GL 240", "R$ 300.000,00", "Oficína", "Bloco E", "Ativo", "Null", "Null"),
+(2094370, "SENAI", "YFHBIPF51", "TORNO MECÂNICO - ROMI 240", "2012-05-22", "ROMI", "GL 240", "R$ 300.000,00", "Oficína", "Bloco E", "Ativo", "Null", "Null"),

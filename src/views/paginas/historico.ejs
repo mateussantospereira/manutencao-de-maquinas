@@ -1,0 +1,35 @@
+<h2 class="title">Histórico da Máquina <%= body.ni %></h2>
+
+<%- include('../components/export-import', { ni: body.ni, userType: body.userType }) %>
+
+<%- include('../components/message', { value: "" }) %>
+
+<% if (body.tabela["status"]==200) { %>
+
+    <%- include('../components/historico', { tabela: body.tabela }) %>
+
+    <% if (body.userType == "adm") { %>
+
+        <div class="start">
+            <div class="delete-table">
+                <%- include('../components/boxDelete', { label: `Confirme a deleção de todo histórico da máquina ${body.ni}:` ,
+                button: "Deletar todo Histórico" , route: `/historico/deletar/${body.ni}`, redirect: `/historico/${body.ni}` })
+                %>
+            </div>
+        </div>
+
+    <% } %>
+
+<% } else { %>
+
+    <div>
+        <p id="message">
+            <%= body.tabela["message"] %>
+        </p>
+    </div>
+
+<% } %>
+
+<script>
+    const message = document.getElementById("message");
+</script>

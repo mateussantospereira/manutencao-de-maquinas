@@ -1,0 +1,45 @@
+<h2 class="title">Modificar <%- body.email %></h2>
+
+<%- include('../components/message', { value: "" }) %>
+
+<div class="form">
+    <form id="form">
+        <div class="form-column">
+            <% registro = body.registro["data"][0] %>
+            <%- include('../components/input', { label: "Nome:" , type: "text" , value: `${registro.nome}` , id: "nome" }) %>
+            <%- include('../components/turma-select', { turmas: body.turmas["data"], value: `${registro.turma}` }) %>
+            <%- include('../components/input', { label: "E-mail:" , type: "text" , value: `${registro.email}` , id: "email" }) %>
+            <%- include('../components/input', { label: "Senha:" , type: "password" , value: "" , id: "senha" })%>
+            <%- include('../components/input-not-required', { label: "Nova senha (não obrigatório):" , type: "password" , value: "" ,
+            id: "novaSenha" }) %>
+            <%- include('../components/input-not-required', { label: "Confirmar nova senha:" , type: "password" , value: "" ,
+            id: "confirmarSenha" }) %>
+        </div>
+
+        <div class="submit">
+            <button class="secondary">Modificar</button>
+        </div>
+    </form>
+
+    <div class="end">
+        <%- include('../components/boxDelete', { label: "Confirme a exclusão do registro:", button: "Deletar",
+        route: `/registro/deletar/${body.email}`, redirect: "/registros" }) %>
+    </div>
+</div>
+
+<script>
+    const form = document.getElementById("form");
+    const email = "<%= body.email %>";
+
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        fetchRedirect(
+            `/registro/atualizar/${email}`, "PUT", form, "/registros",
+            {
+                data: ["novaSenha", "confirmarSenha"],
+                message: "Erro. A senha nova não confere."
+            }
+        );
+    });
+</script>

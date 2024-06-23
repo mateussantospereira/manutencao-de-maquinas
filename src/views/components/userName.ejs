@@ -1,0 +1,11 @@
+<p id="user-name"></p>
+
+<script>
+    const userName = document.getElementById("user-name");
+    const nome = localStorage.getItem("nome");
+    const em = localStorage.getItem("email");
+    
+    if (nome && em) {
+        userName.innerHTML = nome;
+    }
+</script>

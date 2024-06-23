@@ -1,0 +1,77 @@
+<h2 class="title">Manutenir Máquina n° <%= body.ni %></h2>
+
+<%- include('../components/message', { value: "" }) %>
+
+<div id="box-periodo">
+    <label>Período da manutenção:</label>
+    <select id="periodo">
+        <option value="diario">Diária</option>
+        <option value="semanal">Semanal</option>
+        <option value="quinzenal">Quinzenal</option>
+        <option value="mensal">Mensal</option>
+        <option value="trimestral">Trimestral</option>
+    </select>
+</div>
+
+<div class="form">
+    <div id="form-maintenance">
+        <form id="form">
+
+            <div class="form-column"></div>
+    
+            <div class="submit">
+                <button class="secondary">Concluir</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<p class="content-margin">Margin</p>
+
+
+<script src="/public/js/scripts.js"></script>
+
+<script>
+    let periodos;
+    const ni =  "<%= body.ni %>";
+    const select = document.getElementById("periodo");
+
+    async function getData() {
+        const response = await fetch(`/manutencao/listar`);
+        const json = await response.json();
+        return json.data;
+    }
+
+    async function init() {
+        const data = await getData();
+        periodos = data
+
+        getMaintenanceHTML(data[select.value]);
+    }
+    
+    init();
+
+    const form = document.getElementById("form")
+
+    select.addEventListener("change", (event) => {
+        event.preventDefault();
+
+        getMaintenanceHTML(periodos[select.value]);
+    });
+
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const token = localStorage.getItem("token");
+
+        const data = {
+            ni: ni,
+            periodo: select.options[select.selectedIndex].text,
+            userToken: token
+        }
+
+        const json = await fetchUrlencoded("/historico/gravar", "POST", data);
+        console.log(json)
+        redirecionar(json, "/listar");
+    });
+</script>

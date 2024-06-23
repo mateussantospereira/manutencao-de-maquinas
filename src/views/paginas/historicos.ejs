@@ -1,0 +1,17 @@
+<h2 class="title">Histórico de Máquinas</h2>
+
+<% if (body.tabela["status"]==200) { %>
+
+    <%- include('../components/search', { placeholder: "Procurar máquina" }) %>
+
+    <%- include('../components/patrimonios', { tabela: body.tabela, userType: body.userType, update: false, maintenance: false, historic: true }) %>
+
+<% } else { %>
+
+    <div>
+        <p id="message">
+            <%= body.tabela["message"] %>
+        </p>
+    </div>
+
+<% } %>

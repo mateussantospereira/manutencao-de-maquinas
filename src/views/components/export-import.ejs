@@ -1,0 +1,144 @@
+<% if (userType == "adm") { %>
+    <div>
+        <div id="type-search">
+            <div>
+                <button id="exportarWindow" style="font-weight: bolder;" onclick="exportPageOption()">Exportar Histórico</button>
+            </div>
+            <div>
+                <button id="importarWindow" onclick="importPageOption()">
+                    Importar Histórico
+                </button>
+            </div>
+        </div>
+    </div>
+<% } %>
+
+<div>
+    <div class="box-search">
+        <div id="exportPage">
+            <div class="boxSearch">
+                <%- include('../components/search', { placeholder: "Procurar registro de histórico" }) %>
+            </div>
+
+            <div class="end">
+                <div class="main-button">
+                    <button class="secondary" id="boxSearchButton">
+                        Exportar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="importPage" style="display: none;">
+            <form id="form-import">
+                <div id="numbers">
+                    <div>
+                        <input type="file" id="file" required>
+                    </div>
+                </div>
+
+                <div class="end">
+                    <div class="main-button">
+                        <button class="secondary" id="import-submit">
+                            Importar
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="end">
+            <%- include('./carregamento') %>
+        </div>
+    </div>
+</div>
+
+<script>
+    function exportPageOption() {
+        resetTable();
+        importPage.style.display = "none";
+        exportarWindow.style.fontWeight = "bolder";
+        importarWindow.style.fontWeight = "normal";
+        exportPage.style.display = "block";
+    }
+
+    function importPageOption() {
+        resetTable();
+        exportPage.style.display = "none";
+        importarWindow.style.fontWeight = "bolder";
+        exportarWindow.style.fontWeight = "normal";
+        importPage.style.display = "block";
+    }
+
+    function resetTable() {
+        let table = document.getElementsByTagName("tbody")[0];
+
+        if (table) {
+            const linhas = table.getElementsByTagName("tr");
+            
+            Object.values(linhas).forEach((linha) => {
+                linha.style.display = "";
+            });
+        }
+
+    }
+
+    const boxSearchButton = document.getElementById("boxSearchButton");
+    const formImport = document.getElementById("form-import");
+    const importSubmit = document.getElementById("import-submit");
+    const carregando = document.getElementById("carregando");
+    const ni = "<%= ni %>";
+
+    async function download(url) {
+        fetch(url)
+            .then((chunk) => { return chunk.blob() })
+            .then(async (data) => {
+                let url = URL.createObjectURL(data);
+
+                await finishLoading(() => {
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = `Histórico de Manutenção da Máquina ${ni}.xlsx`;
+                    a.click();
+                }, boxSearchButton);
+            });
+    }
+
+    async function exportar(list) {
+        const response = await fetchUrlencoded(`/historico/exportar/${ni}`, "POST", list, true);
+
+        if (response.error == false) {
+            download(response.data);
+        } else {
+            await finishLoading(() => {
+                erro(response.message);
+            }, boxSearchButton);
+        };
+    };
+
+    boxSearchButton.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        enviarLista(exportar);
+    });
+
+    formImport.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        async function importar(file) {
+            const response = await fetch(`/historico/importar/${ni}`, { method: "POST", body: file });
+            const json = await response.json();
+
+            console.log(json)
+
+            await finishLoading(() => {
+                redirecionar(json, `/historico/${ni}`);
+            }, importSubmit);
+        }
+
+        iniciarCarregamento(importSubmit, carregando);
+
+        importar(formImport.file.files[0]);
+    });
+</script>

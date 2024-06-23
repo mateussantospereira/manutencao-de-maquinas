@@ -1,0 +1,30 @@
+<div class="bar">
+    <div class="buttons">
+        <a href="/listar"><button>Listagem de Máquinas</button></a>
+
+        <% if (userType == "adm" || userType == "prof") { %>
+            <a href="/historicos"><button>Histórico de Máquinas</button></a>
+        <% } %>
+        
+        <a href="/escanear"><button>Escanear Máquina</button></a>
+
+        <% if (userType == "adm") { %>
+            <a href="/cadastrar"><button>Cadastrar Máquina</button></a>
+            <a href="/importar"><button>Importar Máquinas</button></a>
+        <% } %>
+
+        <% if (userType == "adm" || userType == "prof") { %>
+            <a href="/exportar"><button>Exportar Máquinas</button></a>
+            <a href="/imprimir"><button>Imprimir Máquinas</button></a>
+        <% } %>
+        
+        <% if (userType == "adm") { %>
+            <a href="/deletar"><button>Deletar Máquinas</button></a>
+            <a href="/registros"><button>Turmas de Usuários</button></a>
+            <a href="/importar-registros"><button>Importar Usuários</button></a>
+            <a href="/registrar"><button>Registrar Usuário</button></a>
+        <% } %>
+        
+        <a href="/sair"><button>Terminar sessão</button></a>
+    </div>
+</div>

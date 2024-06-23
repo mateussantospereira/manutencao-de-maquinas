@@ -1,0 +1,17 @@
+<h2 class="title">Registros da Turma <%= body.turma %></h2>
+
+<%- include('../components/search', { placeholder: "Procurar registro" }) %>
+
+<%- include('../components/registros', { tabela: body.tabela }) %>
+
+<% if (body.userType == "adm") { %>
+    
+    <div class="start">
+        <div class="delete-table">
+            <%- include('../components/boxDelete', { label: `Confirme a deleção da turma ${body.turma}:` ,
+            button: "Deletar turma" , route: `/registro/deletar-turma/${body.turma}`, redirect: `/registros` })
+            %>
+        </div>
+    </div>
+
+<% } %>

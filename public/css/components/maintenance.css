@@ -1,0 +1,25 @@
+#form-maintenance form div div {
+    margin: 1vh 0 !important;
+}
+
+#form-maintenance form label {
+    margin: 0;
+    text-align: start;
+}
+
+#form-maintenance form div div:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    height: 17px;
+    width: 17px;
+    margin: 0;
+    border: solid 1px;
+    margin-right: 0.3vw;
+    background-color: rgb(142, 142, 142);
+}
+input[type="checkbox"]:checked {
+    background-color: rgb(61, 146, 40);
+}

@@ -1,0 +1,19 @@
+<div class="box-table">
+    <div class="table">
+        <% head = {
+            ni: "Nº invent.",
+            periodo: "Período" ,
+            autor: "Autor",
+            turma: "Turma",
+            email: "E-mail",
+            data: "Data",
+            hora: "Hora"
+        } %>
+
+        <%- include('./tabela', {
+            head: head,
+
+            tabela: tabela["data"]
+        }) %>
+    </div>
+</div>

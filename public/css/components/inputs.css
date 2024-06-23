@@ -1,0 +1,56 @@
+input[type="text"],
+input[type="password"],
+input[type="date"] {
+    outline: none;
+    height: 22px;
+    width: 270px;
+    border: solid 1px rgb(107, 107, 107);
+    background-color: white !important;
+    padding: 0px 0px 0px 4px;
+}
+
+#tipo, #turmas {
+    font-size: 16px;
+    height: 24px;
+    width: 276px;
+    padding: 2px 0;
+    margin-top: 0.5vh;
+    margin-bottom: 2vh;
+    border-color: rgb(107, 107, 107);
+    background-color: white;
+}
+
+#inputs-turma {
+    display: flex;
+    justify-content: space-between;
+    width: 276px !important;
+}
+
+#inputs-turma input {
+    width: 60%;
+    border-right: none;
+}
+
+#inputs-turma select {
+    width: 40%;
+}
+
+input:autofill {
+    -webkit-text-fill-color: black !important;
+    -webkit-box-shadow: 0 0 0px 1000px #fff0d8 inset;
+    font-size: var(--font-size);
+}
+
+input[type="file"]::file-selector-button {
+    border: solid 1px;
+    border-color: var(--color-2) !important;
+    font-weight: 500;
+    padding: 0.8vh 0.5vw;
+    background-color: rgb(156, 156, 156);
+    color: var(--color-1);
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: rgb(192, 192, 192);
+    -webkit-text-fill-color: black;
+}
